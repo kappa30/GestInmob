@@ -1,0 +1,156 @@
+<form [formGroup]="this.formCrearPropietario">
+  <div class="container">
+
+      <div class="col-12">
+          <table>
+              <thead>
+                  <tr>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td>
+                      <mat-form-field class="example-full-width">
+                       <mat-label>Nombre</mat-label>
+                        <input matInput formControlName="nombre">
+                      </mat-form-field>
+                      <div *ngIf="this.formCrearPropietario.get('nombre')?.errors && this.formCrearPropietario.get('nombre')?.dirty">
+                       <p class="alert alert-danger" role="alert" *ngIf="this.formCrearPropietario.get('nombre')?.hasError('required')">El campo es obligatorio</p>
+                      </div>
+                    </td>
+                    <div>
+                    <td>
+                      <mat-form-field class="example-full-width">
+                        <mat-label>Apellido</mat-label>
+                         <input matInput formControlName="apellido">
+                      </mat-form-field>
+                      <div *ngIf="this.formCrearPropietario.get('apellido')?.errors && this.formCrearPropietario.get('apellido')?.dirty">
+                       <p class="alert alert-danger" role="alert" *ngIf="this.formCrearPropietario.get('apellido')?.hasError('required')">El campo es obligatorio</p>
+                      </div>
+                    </td>
+                    </div>
+                    <td>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Tipo de documento</mat-label>
+                         <select matNativeControl formControlName="tipoDoc">
+                          <option value="DNI">DNI</option>
+                          <option value="PASAPORTE">PASAPORTE</option>
+                         </select>
+                      </mat-form-field>
+                      <div *ngIf="this.formCrearPropietario.get('tipoDoc')?.errors && this.formCrearPropietario.get('tipoDoc')?.dirty">
+                        <p *ngIf="this.formCrearPropietario.get('tipoDoc')?.hasError('required')">El campo es obligatorio</p>
+                      </div>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                         <mat-label>Numero Doc</mat-label>
+                          <input matInput formControlName="numDoc">
+                        </mat-form-field>
+                        <div *ngIf="this.formCrearPropietario.get('numDoc')?.errors && this.formCrearPropietario.get('numDoc')?.dirty">
+                         <p class="alert alert-danger" role="alert" *ngIf="this.formCrearPropietario.get('numDoc')?.hasError('required')">El campo es obligatorio</p>
+                         <p class="alert alert-danger" role="alert" *ngIf="this.formCrearPropietario.get('numDoc')?.hasError('maxlength')">El campo no puede superar los 8 caracteres</p>
+                         <p class="alert alert-danger" role="alert" *ngIf="this.formCrearPropietario.get('numDoc')?.hasError('minlength')">Debe completar al menos 4 caracteres</p>
+                        </div>
+                    </td>                      
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+  </div>
+
+  <div class="container">
+
+   <div class="col-12">
+      <table>
+          <thead>
+              <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+              </tr>
+          </thead>
+              <tbody>
+                  <tr>
+                    <td>
+                      <mat-form-field class="example-full-width">
+                       <mat-label>email</mat-label>
+                        <input matInput formControlName="email">
+                      </mat-form-field>
+                      <div *ngIf="this.formCrearPropietario.get('email')?.errors && this.formCrearPropietario.get('email')?.dirty">
+                       <p class="alert alert-danger" role="alert" *ngIf="this.formCrearPropietario.get('email')?.hasError('email')">El campo no cumple la regla tipo mail</p>
+                      </div>
+                    </td>
+                    <td>
+                      <mat-form-field class="example-full-width">
+                       <mat-label>email2</mat-label>
+                        <input matInput formControlName="email2">
+                      </mat-form-field>
+                      <div *ngIf="this.formCrearPropietario.get('email2')?.errors && this.formCrearPropietario.get('email2')?.dirty">
+                       <p class="alert alert-danger" role="alert" *ngIf="this.formCrearPropietario.get('email2')?.hasError('email')">El campo no cumple la regla tipo mail</p>
+                      </div>
+                    </td>
+                    <td>
+                      <mat-form-field class="example-full-width">
+                       <mat-label>Telefono</mat-label>
+                        <input matInput formControlName="telefono">
+                      </mat-form-field>
+                      <div *ngIf="this.formCrearPropietario.get('telefono')?.errors && this.formCrearPropietario.get('telefono')?.dirty">
+                       <p class="alert alert-danger" role="alert" *ngIf="this.formCrearPropietario.get('telefono')?.hasError('pattern')">Formato debe ser 11xxxxxxxx</p>
+                      </div>
+                    </td>
+                    <td>
+                      <mat-form-field class="example-full-width">
+                       <mat-label>Telefono2</mat-label>
+                        <input matInput formControlName="telefono2">
+                      </mat-form-field>
+                      <div *ngIf="this.formCrearPropietario.get('telefono2')?.errors && this.formCrearPropietario.get('telefono2')?.dirty">
+                       <p class="alert alert-danger" role="alert" *ngIf="this.formCrearPropietario.get('telefono2')?.hasError('pattern')">Formato debe ser 11xxxxxxxx</p>
+                      </div>
+                    </td>
+                  </tr>
+              </tbody>
+      </table>
+   </div>
+
+  </div>
+      <span><button href="#crearModal" role="button" class="btn btn-dark" (click)="CrearPropietario()" data-toggle="modal" [disabled]="formCrearPropietario.invalid">Crear Nuevo Propietario</button></span>
+  
+
+  <div id="crearModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="navegar()">&times;</button>
+            </div>
+              <div class="modal-body">
+               <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                </symbol>
+               </svg>
+               <div class="alert alert-success d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                <div>
+                  Propietario Creado con Exito
+                </div>
+               </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="navegar()">Cerrar</button>
+              </div>
+        </div>
+    </div>
+  </div>
+</form>
+ <div>
+  <button button type="button" class="btn btn-secondary" routerLink="/Propietarios" (click)="navegar()">Volver</button> 
+ </div>
+ <app-navbar></app-navbar>
+
+

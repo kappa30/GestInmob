@@ -1,0 +1,32 @@
+<div>
+  <div class="col-15 text-center text-dark">
+    <span class="texto"><h1 class="texto">MI USUARIO</h1></span>
+  </div>
+</div>
+
+<form [formGroup]="this.formU">
+  <div class="row">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre de Usuario</mat-label>
+       <input matInput formControlName="nombreUsuario">
+     </mat-form-field>
+      </div>
+  <div class="row">
+    <mat-form-field class="example-full-width">
+      <mat-label>email</mat-label>
+       <input matInput formControlName="email">
+      </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field class="example-full-width">
+      <mat-label>Telefono</mat-label>
+       <input matInput formControlName="telefono">
+    </mat-form-field>
+  </div>
+
+  <span><button type="button" class="btn btn-success" routerLink="/updateUsuario/"><i size="large" class="icon ion-md-create"></i></button></span>
+</form>
+ <div>
+  <button button type="button" class="btn btn-secondary" routerLink="/paginaInicio" (click)="navegar()">Volver</button> 
+ </div>
+ <app-navbar></app-navbar>

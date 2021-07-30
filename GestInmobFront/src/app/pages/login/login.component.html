@@ -1,0 +1,87 @@
+<form [formGroup]="this.formLogin">
+ <mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Bienvenido a GestInmob</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+      <div class="row">
+          <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email">
+          </mat-form-field>
+          <div *ngIf="this.formLogin.get('email')?.errors && this.formLogin.get('email')?.dirty"> 
+            <p class="alert alert-danger" role="alert" *ngIf="this.formLogin.get('email')?.hasError('email')">El dato ingresado no es de tipo mail</p>
+           </div>
+      </div>
+      <div class="row">
+          <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+          </mat-form-field>
+          <div *ngIf="this.formLogin.get('password')?.errors && this.formLogin.get('password')?.dirty">
+            <p class="alert alert-danger" role="alert" *ngIf="this.formLogin.get('password')?.hasError('required')">Debe proporcionar una clave</p>
+           </div>
+      </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button type="button" class="btn btn-dark" (click)="hacerLogin()">Ingresar</button>
+  </mat-card-actions>
+  <mat-card-actions>
+    <div class="alert alert-dark" role="alert">
+      No tenes usuario?  Hace click debajo para registrarte.
+    </div>
+    <button type="button" class="btn btn-dark" routerLink="/createUsuario">Registrar Nuevo Usuario</button>
+  </mat-card-actions>
+</mat-card>   
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Login de usuario</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+              <div class="example-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="pat@example.com" formControlName="email" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </div>
+            </mat-card-content>
+            <mat-card-content>
+              <div class="example-container">
+                <mat-form-field appearance="fill">
+                  <mat-label>Password</mat-label>
+                  <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                  </mat-form-field>
+                  </div>
+                  </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color= "primary" (click)="hacerLogin()">Login</button>
+        </mat-card-actions>
+    </mat-card>
+ -->

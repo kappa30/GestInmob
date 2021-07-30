@@ -1,0 +1,33 @@
+.example-card {
+    max-width: 400px;
+
+
+    
+    text-align: center;
+  }
+  
+  .example-header-image {
+    background-image: url('https://s3.amazonaws.com/storage.wobiz.com/65/65581/images/Original/1599072851_ddd59caba14bfe4edc21283b1cf62f86.65581.png');
+    background-size: cover;
+  }
+
+  .example-container .mat-form-field + .mat-form-field {
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  
+
+
+  .padre {
+   
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    /* IMPORTANTE */
+    text-align: center;
+  }
+
+
+  html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

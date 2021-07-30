@@ -1,0 +1,72 @@
+<div class="container fondo">
+
+    <div>
+
+    </div>
+
+    <div>
+        <div class="col-3">
+            
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <!-- <th>ID SERVICIO</th> -->
+                        <th>SERVICIO</th>
+                        <th>EMPRESA</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let servicio of servicio'>
+                        <!-- <td>{{servicio.ID_SERVICIO}}</td> -->
+                        <td>{{servicio.NOMBRE_SERVICIO}}</td>
+                        <td>{{servicio.EMPRESA}}</td>
+                        <td><button href="#crearModal2" role="button" class="btn btn-danger" data-toggle="modal" (click)="borrar(servicio.ID_SERVICIO)"><i size="large" class="icon ion-md-trash"></i></button></td>
+                        <td><button type="button" class="btn btn-success" [routerLink]="['/editarServicio/',servicio.ID_SERVICIO]"><i size="large" class="icon ion-md-create"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+  <div id="crearModal2" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="volverAlistar()">&times;</button>
+                
+            </div>
+            <div class="modal-body">
+              <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                </symbol>
+              </svg>
+              <div class="alert alert-success d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#check-circle-fill"/></svg>
+                <div>
+                  El servicio se ha eliminado
+                </div>
+              </div>
+
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="volverAlistar()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>   
+
+
+  
+  
+  
+  
+  
+  <app-navbar></app-navbar>
+  <button button type="button" class="btn btn-secondary" routerLink="/mantenimiento" (click)="navegar()">Volver</button>
+  <button disabled="disabled" class="btn btn-light"></button>
+  <button button type="button" class="btn btn-dark" (click)="crearServicio()">Agregar Nuevo Servicio</button>
+
